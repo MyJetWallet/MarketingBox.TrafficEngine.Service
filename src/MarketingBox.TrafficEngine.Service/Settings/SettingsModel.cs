@@ -19,5 +19,8 @@ namespace MarketingBox.TrafficEngine.Service.Settings
 
         [YamlProperty("MarketingBoxTrafficEngineService.MarketingBoxServiceBusHostPort")]
         public string MarketingBoxServiceBusHostPort { get; set; }
+
+        [YamlProperty("MarketingBoxTrafficEngineService.AffiliateServiceUrl")]
+        public string AffiliateServiceUrl { get; set; }
     }
 }

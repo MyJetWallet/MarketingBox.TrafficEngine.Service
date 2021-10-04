@@ -10,12 +10,22 @@ namespace MarketingBox.TrafficEngine.Service.Messages.Traffic
     [DataContract]
     public class CalculatedTrafficMessage
     {
-        [DataMember(Order = 1)] public string TenantId { get; set; }
+        [DataMember(Order = 1)]
+        public string TenantId { get; set; }
 
-        [DataMember(Order = 2)] public long LeadId { get; set; }
+        [DataMember(Order = 2)]
+        public long LeadId { get; set; }
 
-        [DataMember(Order = 3)] public decimal PayoutAmount { get; set; }
+        [DataMember(Order = 3)]
+        public decimal PayoutAmount { get; set; }
 
-        [DataMember(Order = 4)] public decimal RevenueAmount { get; set; }
+        [DataMember(Order = 4)]
+        public decimal RevenueAmount { get; set; }
+
+        [DataMember(Order = 5)]
+        public long BoxId { get; set; }
+
+        [DataMember(Order = 6)]
+        public long CampaignId { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using DotNetCoreDecorators;
+using MarketingBox.Registration.Service.Messages.Leads;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MyJetWallet.Sdk.NoSql;
 using MyJetWallet.Sdk.Service;
