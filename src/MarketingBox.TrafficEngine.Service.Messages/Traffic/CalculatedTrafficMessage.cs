@@ -17,10 +17,10 @@ namespace MarketingBox.TrafficEngine.Service.Messages.Traffic
         public long LeadId { get; set; }
 
         [DataMember(Order = 3)]
-        public decimal PayoutAmount { get; set; }
+        public string PayoutAmount { get; set; }
 
         [DataMember(Order = 4)]
-        public decimal RevenueAmount { get; set; }
+        public string RevenueAmount { get; set; }
 
         [DataMember(Order = 5)]
         public long BoxId { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using DotNetCoreDecorators;
 using MarketingBox.Affiliate.Service.MyNoSql.Campaigns;
 using MarketingBox.TrafficEngine.Service.Messages.Traffic;
@@ -71,8 +72,8 @@ namespace MarketingBox.TrafficEngine.Service.Subscribers
             var calculatedTraffic = new CalculatedTrafficMessage()
             {
                 LeadId = message.LeadId,
-                PayoutAmount = payoutAmount,
-                RevenueAmount = revenueAmount,
+                PayoutAmount = payoutAmount.ToString(CultureInfo.InvariantCulture),
+                RevenueAmount = revenueAmount.ToString(CultureInfo.InvariantCulture),
                 TenantId = message.TenantId,
                 BoxId = message.BoxId,
                 CampaignId = message.CampaignId

@@ -1,4 +1,8 @@
-﻿using Autofac;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Autofac;
+using DotNetCoreDecorators;
 using MarketingBox.Affiliate.Service.Client;
 using MarketingBox.Affiliate.Service.MyNoSql.Campaigns;
 using MarketingBox.TrafficEngine.Service.Subscribers;
@@ -8,6 +12,8 @@ using MyJetWallet.Sdk.ServiceBus;
 using MyNoSqlServer.Abstractions;
 using MyNoSqlServer.DataReader;
 using MyServiceBus.Abstractions;
+using MyServiceBus.TcpClient;
+using SimpleTrading.ServiceBus.CommonUtils.Serializers;
 
 namespace MarketingBox.TrafficEngine.Service.Modules
 {
@@ -32,10 +38,14 @@ namespace MarketingBox.TrafficEngine.Service.Modules
 
             // subscriber (ISubscriber<MarketingBox.Registration.Service.Messages.Leads.LeadBusUpdatedMessage>)
             builder.RegisterMyServiceBusSubscriberSingle<MarketingBox.Registration.Service.Messages.Deposits.DepositUpdateMessage>(
-                serviceBusClient, 
-                MarketingBox.Registration.Service.Messages.Topics.LeadUpdateTopic, 
-                "marketingbox-trafficengine-service", 
+                serviceBusClient,
+                MarketingBox.Registration.Service.Messages.Topics.DepositUpdateTopic,
+                "marketingbox-trafficengine-service",
                 TopicQueueType.Permanent);
+
+            //builder.RegisterType<Subscriber>()
+            //    .As<ISubscriber<MarketingBox.Registration.Service.Messages.Deposits.DepositUpdateMessage>>()
+            //    .SingleInstance();
 
             #endregion
 
@@ -44,7 +54,7 @@ namespace MarketingBox.TrafficEngine.Service.Modules
                 MarketingBox.TrafficEngine.Service.Messages.Topics.CalculatedTrafficTopic, 
                 false);
 
-            builder.RegisterType<MarketingBox.Registration.Service.Messages.Deposits.DepositUpdateMessage>()
+            builder.RegisterType<DepositUpdateMessageSubscriber>()
                 .SingleInstance()
                 .AutoActivate();
         }
