@@ -33,5 +33,8 @@ namespace MarketingBox.TrafficEngine.Service.Messages.Traffic
 
         [DataMember(Order = 8)]
         public long AffiliateId { get; set; }
+
+        [DataMember(Order = 9)]
+        public long BrandId { get; set; }
     }
 }

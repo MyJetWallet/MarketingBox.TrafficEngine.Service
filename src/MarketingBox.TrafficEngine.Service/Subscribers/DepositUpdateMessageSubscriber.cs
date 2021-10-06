@@ -78,7 +78,8 @@ namespace MarketingBox.TrafficEngine.Service.Subscribers
                 TenantId = message.TenantId,
                 BoxId = message.BoxId,
                 CampaignId = message.CampaignId,
-                CreatedAt = message.CreatedAt
+                CreatedAt = message.CreatedAt,
+                BrandId = message.BrandId
             };
 
             await _calculateTrafficPublisher.PublishAsync(calculatedTraffic);
