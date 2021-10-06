@@ -27,5 +27,11 @@ namespace MarketingBox.TrafficEngine.Service.Messages.Traffic
 
         [DataMember(Order = 6)]
         public long CampaignId { get; set; }
+
+        [DataMember(Order = 7)]
+        public DateTime CreatedAt { get; set; }
+
+        [DataMember(Order = 8)]
+        public long AffiliateId { get; set; }
     }
 }

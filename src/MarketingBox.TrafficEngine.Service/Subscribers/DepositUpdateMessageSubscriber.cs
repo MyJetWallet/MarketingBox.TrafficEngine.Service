@@ -71,12 +71,14 @@ namespace MarketingBox.TrafficEngine.Service.Subscribers
 
             var calculatedTraffic = new CalculatedTrafficMessage()
             {
+                AffiliateId = message.AffiliateId,
                 LeadId = message.LeadId,
                 PayoutAmount = payoutAmount.ToString(CultureInfo.InvariantCulture),
                 RevenueAmount = revenueAmount.ToString(CultureInfo.InvariantCulture),
                 TenantId = message.TenantId,
                 BoxId = message.BoxId,
-                CampaignId = message.CampaignId
+                CampaignId = message.CampaignId,
+                CreatedAt = message.CreatedAt
             };
 
             await _calculateTrafficPublisher.PublishAsync(calculatedTraffic);
